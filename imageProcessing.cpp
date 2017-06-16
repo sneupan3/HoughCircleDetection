@@ -3,7 +3,6 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include <iostream>
 #include <stdio.h>
-#include <wiringPi.h>
 
 using namespace cv;
 using namespace std;
@@ -44,8 +43,8 @@ Rect houghDetection(Mat src){
 }
 
 int main(int args, char** argv){
-wiringPiSetup();
-pinMode (readPin, INPUT);
+//	wiringPiSetup();
+//	pinMode (readPin, INPUT);
 
 cout<<"Inside Main\n"<< endl;
 //while (!digitalRead(readPin)) {cout<<"Waiting";}
@@ -67,10 +66,10 @@ cout<<"Inside Main\n"<< endl;
 		//Canny(edges, edges, 70, 30, 3);
 		imshow("houghCircle", frame);
 		if(circleFound == true){
-			Mat croppedImage = frame(roi);
-			blobDetection(croppedImage);
-			imwrite("./houghImg.png", croppedImage);
-			circleFound = false;
+		//	Mat croppedImage = frame(roi);
+		//	blobDetection(croppedImage);
+		//	imwrite("./houghImg.png", croppedImage);
+		//	circleFound = false;
 		}
 		if(waitKey(30) >= 0) break;
 	
